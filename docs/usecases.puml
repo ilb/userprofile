@@ -1,0 +1,41 @@
+@startuml usecase
+
+:Пользователь:
+
+(Смотреть точку продаж) as salepointView
+
+note bottom of salepointView
+  html:
+  Пользователь видит селектор
+  с выбранной точкой продаж,
+  может сменить точку продаж
+
+  json:
+  структура {code, name}
+end note
+
+(Сменить точку продаж) as salepointChange
+note bottom of salepointChange
+  Смена точки продаж сохраняется 
+  в базу данных
+end note
+
+
+(Сменить историю точек продаж) as salepointHistory
+
+note bottom of salepointHistory
+  Пользователь видит историю точек продаж
+  Дата начала; Дата окончания: Точка продаж
+end note
+
+
+:Пользователь: -- salepointView : html
+salepointView --> salepointChange : html
+:Пользователь: -- salepointHistory : html
+
+
+:Внешняя система:
+
+:Внешняя система: -- salepointView : json
+
+@enduml
