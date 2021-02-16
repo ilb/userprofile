@@ -1,0 +1,46 @@
+@startuml model
+
+class User{
+    + code
+    + name
+}
+
+
+note left of User
+  Пользователь системы
+end note
+
+class Salepoint{
+    + code
+    + name
+}
+
+
+note left of Salepoint
+  Точка продаж
+end note
+
+class UserSalepoint {
+    user: User
+    salepoint: Salepoint
+    begDate: DateTime
+    endDate: DateTime
+}
+
+note left of UserSalepoint
+  Пользователь и Точка
+  продаж связаны соотношением М:М
+
+  Связь М:М реализуется через
+  таблицу-связку UserSalepoint
+
+  Каждая смена точки продаж регистрируется
+  новой записью UserSalepoint
+end note
+
+
+User "1" *-- "M" UserSalepoint : содержит >
+Salepoint "1" *-- "M" UserSalepoint : содержит >
+
+
+@enduml

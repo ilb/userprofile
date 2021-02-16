@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="302px" preserveAspectRatio="none" style="width:561px;height:302px;" version="1.1" viewBox="0 0 561 302" width="561px" zoomAndPan="magnify"><defs><filter height="300%" id="f9cshlar1kbn7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><rect fill="#FEFECE" filter="url(#f9cshlar1kbn7)" height="73.7813" id="User" style="stroke: #A80036; stroke-width: 1.5;" width="58" x="230.5" y="8"/><ellipse cx="245.95" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M245.9969,30.2031 C247.4969,30.2031 248.7313,29.6406 249.6375,28.5781 L248.2625,27.0625 C247.7156,27.6563 247.0594,28.0469 246.2625,28.0469 C244.5906,28.0469 243.4344,26.7188 243.4344,24.4375 C243.4344,22.2188 244.5906,20.875 246.1531,20.875 C246.9656,20.875 247.5594,21.1875 248.0906,21.6719 L249.4656,20.125 C248.7156,19.3906 247.5594,18.7188 246.1531,18.7188 C243.2,18.7188 240.8719,20.8594 240.8719,24.5313 C240.8719,28.25 243.2469,30.2031 245.9969,30.2031 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="25" x="260.05" y="28.1016">User</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="231.5" x2="287.5" y1="40" y2="40"/><ellipse cx="241.5" cy="51" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="250.5" y="54.2051">code</text><ellipse cx="241.5" cy="63.8906" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="32" x="250.5" y="67.0957">name</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="231.5" x2="287.5" y1="73.7813" y2="73.7813"/><path d="M26,32.5 L26,57.7344 A0,0 0 0 0 26,57.7344 L195,57.7344 A0,0 0 0 0 195,57.7344 L195,50.5 L230.3575,45 L195,42.5 L195,42.5 L185,32.5 L26,32.5 A0,0 0 0 0 26,32.5 " fill="#FBFB77" filter="url(#f9cshlar1kbn7)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M185,32.5 L185,42.5 L195,42.5 L185,32.5 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="148" x="32" y="49.5605">Пользователь системы</text><!--MD5=[477ef5c7b34ac6f9d44581ff57be8e31]
+class Salepoint--><rect fill="#FEFECE" filter="url(#f9cshlar1kbn7)" height="73.7813" id="Salepoint" style="stroke: #A80036; stroke-width: 1.5;" width="82" x="468.5" y="8"/><ellipse cx="483.5" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M483.5469,30.2031 C485.0469,30.2031 486.2813,29.6406 487.1875,28.5781 L485.8125,27.0625 C485.2656,27.6563 484.6094,28.0469 483.8125,28.0469 C482.1406,28.0469 480.9844,26.7188 480.9844,24.4375 C480.9844,22.2188 482.1406,20.875 483.7031,20.875 C484.5156,20.875 485.1094,21.1875 485.6406,21.6719 L487.0156,20.125 C486.2656,19.3906 485.1094,18.7188 483.7031,18.7188 C480.75,18.7188 478.4219,20.8594 478.4219,24.5313 C478.4219,28.25 480.7969,30.2031 483.5469,30.2031 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="497.5" y="28.1016">Salepoint</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="469.5" x2="549.5" y1="40" y2="40"/><ellipse cx="479.5" cy="51" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="488.5" y="54.2051">code</text><ellipse cx="479.5" cy="63.8906" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="32" x="488.5" y="67.0957">name</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="469.5" x2="549.5" y1="73.7813" y2="73.7813"/><path d="M323.5,32.5 L323.5,57.7344 A0,0 0 0 0 323.5,57.7344 L433.5,57.7344 A0,0 0 0 0 433.5,57.7344 L433.5,50.5 L468.2397,45 L433.5,42.5 L433.5,42.5 L423.5,32.5 L323.5,32.5 A0,0 0 0 0 323.5,32.5 " fill="#FBFB77" filter="url(#f9cshlar1kbn7)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M423.5,32.5 L423.5,42.5 L433.5,42.5 L423.5,32.5 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="329.5" y="49.5605">Точка продаж</text><!--MD5=[cc993e75908b7116247e3f74021fb409]
+class UserSalepoint--><rect fill="#FEFECE" filter="url(#f9cshlar1kbn7)" height="99.5625" id="UserSalepoint" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="340.5" y="175"/><ellipse cx="361.35" cy="191" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M361.3969,197.2031 C362.8969,197.2031 364.1313,196.6406 365.0375,195.5781 L363.6625,194.0625 C363.1156,194.6563 362.4594,195.0469 361.6625,195.0469 C359.9906,195.0469 358.8344,193.7188 358.8344,191.4375 C358.8344,189.2188 359.9906,187.875 361.5531,187.875 C362.3656,187.875 362.9594,188.1875 363.4906,188.6719 L364.8656,187.125 C364.1156,186.3906 362.9594,185.7188 361.5531,185.7188 C358.6,185.7188 356.2719,187.8594 356.2719,191.5313 C356.2719,195.25 358.6469,197.2031 361.3969,197.2031 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="376.65" y="195.1016">UserSalepoint</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="341.5" x2="459.5" y1="207" y2="207"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="55" x="346.5" y="221.2051">user: User</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="108" x="346.5" y="234.0957">salepoint: Salepoint</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="105" x="346.5" y="246.9863">begDate: DateTime</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="105" x="346.5" y="259.877">endDate: DateTime</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="341.5" x2="459.5" y1="266.5625" y2="266.5625"/><path d="M6,159 L6,290.875 A0,0 0 0 0 6,290.875 L305,290.875 A0,0 0 0 0 305,290.875 L305,229 L340.2407,225 L305,221 L305,169 L295,159 L6,159 A0,0 0 0 0 6,159 " fill="#FBFB77" filter="url(#f9cshlar1kbn7)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M295,159 L295,169 L305,169 L295,159 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="142" x="12" y="176.0605">Пользователь и Точка</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="228" x="12" y="191.2949">продаж связаны соотношением М:М</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="15" y="206.5293"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="185" x="12" y="221.7637">Связь М:М реализуется через</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="181" x="12" y="236.998">таблицу-связку UserSalepoint</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="15" y="252.2324"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="278" x="12" y="267.4668">Каждая смена точки продаж регистрируется</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="180" x="12" y="282.7012">новой записью UserSalepoint</text><!--MD5=[4588c2438e3a95d1436e79038c165e68]
+reverse link User to UserSalepoint--><path d="M296.9073,92.754 C316.7261,118.0547 341.058,149.1167 361.1592,174.7777 " fill="none" id="User&lt;-UserSalepoint" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="288.7153,82.2961,289.2663,89.4861,296.1152,91.7429,295.5642,84.5528,288.7153,82.2961" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="62" x="323.5" y="125.0605">содержит</text><polygon fill="#000000" points="350,134.2344,353,140.2344,356,134.2344,350,134.2344" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="285.9744" y="101.8135">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="11" x="343.8535" y="163.7683">M</text><!--MD5=[131d4813462049c5eedfe087f2b315be]
+reverse link Salepoint to UserSalepoint--><path d="M480.1711,93.433 C464.9257,118.6089 446.3128,149.3458 430.9124,174.7777 " fill="none" id="Salepoint&lt;-UserSalepoint" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="486.9151,82.2961,480.3856,85.3565,480.6993,92.5608,487.2287,89.5004,486.9151,82.2961" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="62" x="468.5" y="125.0605">содержит</text><polygon fill="#000000" points="495,134.2344,498,140.2344,501,134.2344,495,134.2344" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="475.5948" y="101.8135">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="11" x="423.4157" y="163.7683">M</text><!--MD5=[b06dabc933e2f1face25a35962771302]
+@startuml model
+
+class User{
+    + code
+    + name
+}
+
+
+note left of User
+  Пользователь системы
+end note
+
+class Salepoint{
+    + code
+    + name
+}
+
+
+note left of Salepoint
+  Точка продаж
+end note
+
+class UserSalepoint {
+    user: User
+    salepoint: Salepoint
+    begDate: DateTime
+    endDate: DateTime
+}
+
+note left of UserSalepoint
+  Пользователь и Точка
+  продаж связаны соотношением М:М
+
+  Связь М:М реализуется через
+  таблицу-связку UserSalepoint
+
+  Каждая смена точки продаж регистрируется
+  новой записью UserSalepoint
+end note
+
+
+User "1" *- - "M" UserSalepoint : содержит >
+Salepoint "1" *- - "M" UserSalepoint : содержит >
+
+
+@enduml
+
+PlantUML version 1.2020.09(Sun May 10 14:51:06 SAMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.10+9-suse-lp152.2.9.1-x8664
+Operating System: Linux
+Default Encoding: UTF-8
+Language: ru
+Country: RU
+--></g></svg>
