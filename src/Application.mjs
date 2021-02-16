@@ -1,7 +1,8 @@
 import awilix from 'awilix';
 const { asFunction, asValue } = awilix;
 import DataSourceFactory from './database/DataSourceFactory';
-import { PrismaClient } from '@prisma/client';
+import Prisma from '@prisma/client';
+const { PrismaClient } = Prisma;
 
 export default class Application {
   constructor() {

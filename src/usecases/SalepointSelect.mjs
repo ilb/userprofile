@@ -24,7 +24,7 @@ export default class SalepointSelect {
     const schema = {
       type: 'object',
       properties: {
-        category: { title: 'salepointUid', type: 'string', enum: salepoints.map((sp) => sp.name) }
+        category: { title: 'Точка продаж', type: 'string', enum: salepoints.map((sp) => sp.name) }
       },
       required: ['salepointUid']
     };
