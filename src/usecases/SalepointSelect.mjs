@@ -2,10 +2,10 @@
  * Search use case
  */
 export default class SalepointSelect {
-  // constructor({ salepointProvider, currentUser }) {
-  //   this.salepointProvider = salepointProvider;
-  //   this.currentUser = currentUser;
-  // }
+  constructor({ salepointProvider }) {
+    this.salepointProvider = salepointProvider;
+    // this.currentUser = currentUser;
+  }
   /**
    * process use case
    * @param {*} request input params
@@ -20,11 +20,11 @@ export default class SalepointSelect {
 
   /*eslint no-unused-vars: ["error", { "args": "none" }]*/
   async getSchema(request) {
-    const salepoints = ['Головной']; //await this.salepointProvider.getSalepoints(this.currentUser);
+    const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
     const schema = {
       type: 'object',
       properties: {
-        category: { title: 'salepointUid', type: 'string', enum: salepoints }
+        category: { title: 'salepointUid', type: 'string', enum: salepoints.map((sp) => sp.name) }
       },
       required: ['salepointUid']
     };
