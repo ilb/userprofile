@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="143px" preserveAspectRatio="none" style="width:1300px;height:143px;" version="1.1" viewBox="0 0 1300 143" width="1300px" zoomAndPan="magnify"><defs><filter height="300%" id="fssxgdp73pczg" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[3eee7a901706d4a5e5c93a9728216901]
+cluster Адаптеры--><polygon fill="#ADFF2F" filter="url(#fssxgdp73pczg)" points="14,22.5,92,22.5,99,44.9063,534,44.9063,534,124.5,14,124.5,14,22.5" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="14" x2="99" y1="44.9063" y2="44.9063"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="18" y="37.4883">Адаптеры</text><!--MD5=[0aa27a5d1075219e8f2d4e5fbc89f7d1]
+cluster Репозитории--><polygon fill="#ADFF2F" filter="url(#fssxgdp73pczg)" points="553,16,651,16,658,38.4063,1278,38.4063,1278,131,553,131,553,16" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="553" x2="658" y1="38.4063" y2="38.4063"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="92" x="557" y="30.9883">Репозитории</text><!--MD5=[4a02d8cf018e226e30160bf92aaabe48]
+class SalepointProvider--><rect fill="#FEFECE" filter="url(#fssxgdp73pczg)" height="67.0156" id="SalepointProvider" style="stroke: #A80036; stroke-width: 1.5;" width="253" x="22.5" y="49.5"/><ellipse cx="97.75" cy="68.5625" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M97.7969,74.7656 C99.2969,74.7656 100.5313,74.2031 101.4375,73.1406 L100.0625,71.625 C99.5156,72.2188 98.8594,72.6094 98.0625,72.6094 C96.3906,72.6094 95.2344,71.2813 95.2344,69 C95.2344,66.7813 96.3906,65.4375 97.9531,65.4375 C98.7656,65.4375 99.3594,65.75 99.8906,66.2344 L101.2656,64.6875 C100.5156,63.9531 99.3594,63.2813 97.9531,63.2813 C95,63.2813 92.6719,65.4219 92.6719,69.0938 C92.6719,72.8125 95.0469,74.7656 97.7969,74.7656 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="91" x="119.75" y="65.6328">«Точки продаж»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="94" x="118.25" y="79.6953">SalepointProvider</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="23.5" x2="274.5" y1="87.625" y2="87.625"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="23.5" x2="274.5" y1="95.625" y2="95.625"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="241" x="28.5" y="109.8301">getSalepoints(user): «Получить доступные»</text><path d="M310.5,50 L310.5,73.8516 L269.5,106.0703 L310.5,81.8516 L310.5,105.7031 A0,0 0 0 0 310.5,105.7031 L525.5,105.7031 A0,0 0 0 0 525.5,105.7031 L525.5,60 L515.5,50 L310.5,50 A0,0 0 0 0 310.5,50 " fill="#FBFB77" filter="url(#fssxgdp73pczg)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M515.5,50 L515.5,60 L525.5,60 L515.5,50 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="191" x="316.5" y="67.0605">Метод возвращает доступные</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="183" x="316.5" y="82.2949">пользователю точки продаж</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="92" x="316.5" y="97.5293">[{code,name},...]</text><!--MD5=[10ea36551914d08b9f19afbcd8f63a98]
+class SalepointRepository--><rect fill="#FEFECE" filter="url(#fssxgdp73pczg)" height="79.9063" id="SalepointRepository" style="stroke: #A80036; stroke-width: 1.5;" width="140" x="911" y="43"/><ellipse cx="926" cy="62.0625" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M926.0469,68.2656 C927.5469,68.2656 928.7813,67.7031 929.6875,66.6406 L928.3125,65.125 C927.7656,65.7188 927.1094,66.1094 926.3125,66.1094 C924.6406,66.1094 923.4844,64.7813 923.4844,62.5 C923.4844,60.2813 924.6406,58.9375 926.2031,58.9375 C927.0156,58.9375 927.6094,59.25 928.1406,59.7344 L929.5156,58.1875 C928.7656,57.4531 927.6094,56.7813 926.2031,56.7813 C923.25,56.7813 920.9219,58.9219 920.9219,62.5938 C920.9219,66.3125 923.2969,68.2656 926.0469,68.2656 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="91" x="948.5" y="59.1328">«Точки продаж»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="940" y="73.1953">SalepointRepository</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="912" x2="1050" y1="81.125" y2="81.125"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="912" x2="1050" y1="89.125" y2="89.125"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="93" x="917" y="103.3301">getByCode(code)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="57" x="917" y="116.2207">save(data)</text><path d="M1086.5,58 L1086.5,74.2344 L1010,99.5703 L1086.5,82.2344 L1086.5,98.4688 A0,0 0 0 0 1086.5,98.4688 L1269.5,98.4688 A0,0 0 0 0 1269.5,98.4688 L1269.5,68 L1259.5,58 L1086.5,58 A0,0 0 0 0 1086.5,58 " fill="#FBFB77" filter="url(#fssxgdp73pczg)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1259.5,58 L1259.5,68 L1269.5,68 L1259.5,58 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="159" x="1092.5" y="75.0605">Метод возвращает точку</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="98" x="1092.5" y="90.2949">продаж по коду</text><!--MD5=[093c210125347143eef5bb9199eae634]
+class UserRepository--><rect fill="#FEFECE" filter="url(#fssxgdp73pczg)" height="79.9063" id="UserRepository" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="561" y="43"/><ellipse cx="576" cy="62.0625" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M576.0469,68.2656 C577.5469,68.2656 578.7813,67.7031 579.6875,66.6406 L578.3125,65.125 C577.7656,65.7188 577.1094,66.1094 576.3125,66.1094 C574.6406,66.1094 573.4844,64.7813 573.4844,62.5 C573.4844,60.2813 574.6406,58.9375 576.2031,58.9375 C577.0156,58.9375 577.6094,59.25 578.1406,59.7344 L579.5156,58.1875 C578.7656,57.4531 577.6094,56.7813 576.2031,56.7813 C573.25,56.7813 570.9219,58.9219 570.9219,62.5938 C570.9219,66.3125 573.2969,68.2656 576.0469,68.2656 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="92" x="588" y="59.1328">«Пользователи»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="83" x="592.5" y="73.1953">UserRepository</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="562" x2="680" y1="81.125" y2="81.125"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="562" x2="680" y1="89.125" y2="89.125"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="93" x="567" y="103.3301">getByCode(code)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="57" x="567" y="116.2207">save(data)</text><path d="M716,58 L716,74.2344 L660,99.5703 L716,82.2344 L716,98.4688 A0,0 0 0 0 716,98.4688 L876,98.4688 A0,0 0 0 0 876,98.4688 L876,68 L866,58 L716,58 A0,0 0 0 0 716,58 " fill="#FBFB77" filter="url(#fssxgdp73pczg)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M866,58 L866,68 L876,68 L866,58 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="121" x="722" y="75.0605">Метод возвращает</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="139" x="722" y="90.2949">пользователя по коду</text><!--MD5=[d0ce0f33cdadc5b1b473a5672ef80ccc]
+link SalepointProvider to SalepointProvider$$$RIGHT--><!--MD5=[d0962155a2c23d40d2aeaaf5c080a078]
+link SalepointRepository to SalepointRepository$$$RIGHT--><!--MD5=[e3bdb031e085803f04de5ffd6cb817bd]
+link UserRepository to UserRepository$$$RIGHT--><!--MD5=[80fcaa3f063fc4a81a33caef76011e22]
+@startuml entities
+
+
+
+package Адаптеры #GreenYellow {
+
+    class SalepointProvider <<Точки продаж>> {
+        getSalepoints(user): <<Получить доступные>>
+    }
+
+  note right of SalepointProvider::getSalepoints
+    Метод возвращает доступные 
+    пользователю точки продаж
+    [{code,name},...]
+  end note
+}
+
+package Репозитории #GreenYellow {
+
+  class SalepointRepository <<Точки продаж>> {
+        getByCode(code)
+        save(data)
+  }
+
+  note right of SalepointRepository::getByCode
+    Метод возвращает точку 
+    продаж по коду
+  end note
+
+  class UserRepository <<Пользователи>> {
+        getByCode(code)
+        save(data)
+  }
+
+  note right of UserRepository::getByCode
+    Метод возвращает 
+    пользователя по коду
+  end note
+}
+
+
+@enduml
+
+PlantUML version 1.2020.09(Sun May 10 14:51:06 SAMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.10+9-suse-lp152.2.9.1-x8664
+Operating System: Linux
+Default Encoding: UTF-8
+Language: ru
+Country: RU
+--></g></svg>

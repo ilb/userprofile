@@ -12,7 +12,7 @@ export default class SalepointRepository {
     return salepoint;
   }
 
-  async create(data) {
+  async save(data) {
     const res = await this.prisma.salepoint.create({
       data
     });

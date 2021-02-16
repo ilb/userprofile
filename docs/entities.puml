@@ -1,0 +1,42 @@
+@startuml entities
+
+
+
+package Адаптеры #GreenYellow {
+
+    class SalepointProvider <<Точки продаж>> {
+        getSalepoints(user): <<Получить доступные>>
+    }
+
+  note right of SalepointProvider::getSalepoints
+    Метод возвращает доступные 
+    пользователю точки продаж
+    [{code,name},...]
+  end note
+}
+
+package Репозитории #GreenYellow {
+
+  class SalepointRepository <<Точки продаж>> {
+        getByCode(code)
+        save(data)
+  }
+
+  note right of SalepointRepository::getByCode
+    Метод возвращает точку 
+    продаж по коду
+  end note
+
+  class UserRepository <<Пользователи>> {
+        getByCode(code)
+        save(data)
+  }
+
+  note right of UserRepository::getByCode
+    Метод возвращает 
+    пользователя по коду
+  end note
+}
+
+
+@enduml
