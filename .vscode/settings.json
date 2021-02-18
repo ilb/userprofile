@@ -1,11 +1,13 @@
 {
   "files.associations": {
-    "*.js": "javascriptreact"
+    "*.js": "javascriptreact",
+    "*.mjs": "javascriptreact"
   },
   "eslint.validate": [
     "javascript",
     "javascriptreact"
   ],
+  "files.eol": "\n",
   "eslint.autoFixOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
