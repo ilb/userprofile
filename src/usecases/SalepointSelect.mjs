@@ -19,7 +19,7 @@ export default class SalepointSelect {
   }
 
   /*eslint no-unused-vars: ["error", { "args": "none" }]*/
-  async getSchema(request) {
+  async schema(request) {
     const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
     const schema = {
       type: 'object',
