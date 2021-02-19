@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<getSalepointByUserResponse xsi:schemaLocation="urn:ru:ilb:ldap:getSalepointByUserResponse ./schemas/bbldap/getSalepointByUserResponse.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:ru:ilb:ldap:getSalepointByUserResponse">
+ <uid>user</uid>
+ <salepoint>
+  <name>ru.someorg.sales.users</name>
+  <description>Департамент розничных продаж</description>
+ </salepoint>
+ <salepoint>
+  <name>ru.someorg.sales.head.users</name>
+  <description>Офис продаж "Головной"</description>
+ </salepoint>
+ <salepoint>
+  <name>ru.someorg.sales.river.users</name>
+  <description>Офис продаж "Речной"</description>
+ </salepoint>
+</getSalepointByUserResponse>

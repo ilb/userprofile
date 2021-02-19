@@ -2,9 +2,9 @@
  * Search use case
  */
 export default class SalepointSelect {
-  constructor({ salepointProvider }) {
+  constructor({ salepointProvider, currentUser }) {
     this.salepointProvider = salepointProvider;
-    // this.currentUser = currentUser;
+    this.currentUser = currentUser;
   }
   /**
    * process use case
