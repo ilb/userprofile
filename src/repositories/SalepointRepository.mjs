@@ -3,8 +3,8 @@ export default class SalepointRepository {
     this.prisma = prisma;
   }
 
-  async find(id) {
-    const salepoint = await this.prisma.user.findUnique({
+  async findById(id) {
+    const salepoint = await this.prisma.salepoint.findUnique({
       where: {
         id
       }
