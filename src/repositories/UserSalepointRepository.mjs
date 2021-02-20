@@ -3,12 +3,13 @@ export default class UserSalepointRepository {
     this.prisma = prisma;
   }
 
-  async findByUserId(userId) {
-    const salepoints = await this.prisma.userSalepoint.findMany({
+  async findCurrentByUserId(userId) {
+    const salepoint = await this.prisma.userSalepoint.findFirst({
       where: {
-        userId
+        userId,
+        endDate: null
       }
     });
-    return salepoints;
+    return salepoint;
   }
 }
