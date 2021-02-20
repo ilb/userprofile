@@ -26,7 +26,12 @@ export default class Application {
 
     // autoscan modules
     await this.container.loadModules(
-      ['src/repositories/**/*.mjs', 'src/usecases/**/*.mjs', 'src/providers/**/*.mjs'],
+      [
+        'src/repositories/**/*.mjs',
+        'src/usecases/**/*.mjs',
+        'src/providers/**/*.mjs',
+        'src/services/**/*.mjs'
+      ],
       {
         formatName: 'camelCase',
         esModules: true

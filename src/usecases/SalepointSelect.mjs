@@ -2,18 +2,9 @@
  * Search use case
  */
 export default class SalepointSelect {
-  constructor({
-    salepointProvider,
-    userRepository,
-    userSalepointRepository,
-    salepointRepository,
-    currentUser
-  }) {
+  constructor({ salepointProvider, salepointService }) {
     this.salepointProvider = salepointProvider;
-    this.userRepository = userRepository;
-    this.userSalepointRepository = userSalepointRepository;
-    this.salepointRepository = salepointRepository;
-    this.currentUser = currentUser;
+    this.salepointService = salepointService;
   }
   /**
    * process use case
@@ -22,13 +13,8 @@ export default class SalepointSelect {
   async process(request) {
     const result = {};
     const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
+    const currentSalepoint = await this.salepointService.getCurrentSalepoint();
 
-    const user = await this.userRepository.findByCode(this.currentUser);
-    const userSalepoints = await this.userSalepointRepository.findByUserId(user.id);
-    const currentUserSalepoint = userSalepoints.find((userSalepoint) => !userSalepoint.endDate);
-    const currentSalepoint = await this.salepointRepository.findById(
-      currentUserSalepoint.salepointId
-    );
     const { name, code } = currentSalepoint;
     result.currentSalepoint = { name, code };
     result.salepoints = salepoints
@@ -43,15 +29,16 @@ export default class SalepointSelect {
   /*eslint no-unused-vars: ["error", { "args": "none" }]*/
   async schema(request) {
     // const schema = {};
-    const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
+    // const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
     const schema = {
       type: 'object',
       properties: {
-        salepointCode: {
-          title: 'Точка продаж',
-          type: 'string',
-          enum: salepoints.map((sp) => sp.name)
-        }
+        // salepointCode: {
+        //   title: 'Точка продаж',
+        //   type: 'string',
+        //   enum: salepoints.map((sp) => sp.name),
+        //   options: []
+        // }
       },
       required: ['salepointCode']
     };
