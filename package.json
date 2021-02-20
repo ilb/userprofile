@@ -17,9 +17,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@ilb/uniformscomponents": "^1.0.0",
     "@prisma/client": "^2.16.1",
     "@zeit/next-css": "^1.0.1",
-    "ajv": "^7.1.0",
+    "ajv": "^7.1.1",
+    "ajv-formats": "^1.5.1",
     "ajv-i18n": "^3.6.0",
     "awilix": "^4.3.1",
     "dotenv": "^8.2.0",
@@ -28,15 +30,16 @@
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^6.3.0",
     "react": "^17.0.1",
+    "react-datepicker": "^3.5.0",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.15.2",
     "semantic-ui-offline": "^2.4.1-1",
     "semantic-ui-react": "^2.0.3",
     "serverless-mysql": "^1.5.4",
     "styled-components": "^5.2.1",
-    "uniforms": "^3.1.0",
-    "uniforms-bridge-json-schema": "^3.1.0",
-    "uniforms-semantic": "^3.1.0"
+    "uniforms": "^3.2.0",
+    "uniforms-bridge-json-schema": "^3.2.0",
+    "uniforms-semantic": "^3.2.0"
   },
   "devDependencies": {
     "@prisma/cli": "^2.16.1",

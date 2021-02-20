@@ -42,7 +42,20 @@ export default class SalepointSelect {
 
   /*eslint no-unused-vars: ["error", { "args": "none" }]*/
   async schema(request) {
-    const schema = {};
+    // const schema = {};
+    const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
+    const schema = {
+      type: 'object',
+      properties: {
+        salepointCode: {
+          title: 'Точка продаж',
+          type: 'string',
+          enum: salepoints.map((sp) => sp.name)
+        }
+      },
+      required: ['salepointCode']
+    };
+    // console.log({ schema });
     return schema;
   }
 }
