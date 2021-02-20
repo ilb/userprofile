@@ -6,7 +6,7 @@ export async function processUsecase({ query: request, req }, useCase) {
   const props = {
     request,
     response: await usecase.process(request),
-    schema: await usecase.getSchema(request)
+    schema: await usecase.schema(request)
   };
   return { props };
 }

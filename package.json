@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon server.js",
+    "next": "next",
     "build": "next build",
     "start": "next start",
     "now-build": "next build",

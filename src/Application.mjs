@@ -48,7 +48,7 @@ export default class Application {
     const currentUser = xRemoteUser || process.env.USER;
 
     const scope = this.container.createScope();
-    scope.register({ currentUser });
+    scope.register({ currentUser: asValue(currentUser) });
 
     return scope;
   }

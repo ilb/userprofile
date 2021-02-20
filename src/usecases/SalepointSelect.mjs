@@ -2,12 +2,18 @@
  * Search use case
  */
 export default class SalepointSelect {
-  constructor({ salepointProvider, userRepository, userSalepointRepository, salepointRepository }) {
+  constructor({
+    salepointProvider,
+    userRepository,
+    userSalepointRepository,
+    salepointRepository,
+    currentUser
+  }) {
     this.salepointProvider = salepointProvider;
     this.userRepository = userRepository;
     this.userSalepointRepository = userSalepointRepository;
     this.salepointRepository = salepointRepository;
-    this.currentUser = this.currentUser = process.env.USER;
+    this.currentUser = currentUser;
   }
   /**
    * process use case
@@ -35,7 +41,7 @@ export default class SalepointSelect {
   }
 
   /*eslint no-unused-vars: ["error", { "args": "none" }]*/
-  async getSchema(request) {
+  async schema(request) {
     const schema = {};
     return schema;
   }
