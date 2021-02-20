@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Header } from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
-import { createSchemaBridge } from '../libs/uniforms';
+import { createSchemaBridge, CustomAutoField } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
 import { processUsecase } from '../libs/usecases';
 
@@ -17,6 +17,7 @@ function SalepointSelectPage({ router, request, response, schema }) {
       <AutoForm
         schema={createSchemaBridge(schema)}
         model={request}
+        autoField={CustomAutoField}
         onSubmit={onSubmit}
         showInlineError={true}
       />

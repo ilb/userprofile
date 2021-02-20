@@ -5,7 +5,8 @@ const withTM = require('next-transpile-modules')([
   'uniforms-bridge-json-schema',
   'uniforms',
   'uniforms-semantic',
-  'ajv'
+  'ajv',
+  '@ilb/uniformscomponents'
 ]);
 
 module.exports = withPlugins([withTM], {

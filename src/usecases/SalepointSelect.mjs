@@ -24,10 +24,15 @@ export default class SalepointSelect {
     const schema = {
       type: 'object',
       properties: {
-        category: { title: 'Точка продаж', type: 'string', enum: salepoints.map((sp) => sp.name) }
+        salepointCode: {
+          title: 'Точка продаж',
+          type: 'string',
+          enum: salepoints.map((sp) => sp.name)
+        }
       },
-      required: ['salepointUid']
+      required: ['salepointCode']
     };
+    // console.log({ schema });
     return schema;
   }
 }
