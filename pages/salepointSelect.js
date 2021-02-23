@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Header, Form } from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { processUsecase } from '../libs/usecases';
-import { changeSalepoint, loadSalepoints } from '../libs/api/salepointsApi';
+import { changeSalepoint } from '../libs/api/salepointsApi';
 
 function FormSelect({ name, id, label, defaultValue, register, required, options, errors }) {
   return (
@@ -24,16 +24,14 @@ function FormSelect({ name, id, label, defaultValue, register, required, options
 }
 
 function SalepointSelectPage({ router, request, response, schema }) {
-  const [loadedSalepoints, setLoadedSalepoints] = useState(null);
   const { register, handleSubmit } = useForm();
 
-  let salepoints = loadedSalepoints || response.salepoints;
+  const salepoints = response.salepoints;
   const currentSalepoint = salepoints.find((sp) => sp.isCurrent);
 
   async function onSubmit(query) {
     await changeSalepoint(query.salepointCode);
-    const response = await loadSalepoints();
-    setLoadedSalepoints(response.data.salepoints);
+    router.replace(router.asPath);
   }
 
   return (
