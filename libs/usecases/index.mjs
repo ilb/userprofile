@@ -26,9 +26,18 @@ export async function processUsecaseApi(req, useCase) {
     return await usecase.process(req);
   } else {
     for (const err of validate.errors) {
+      const errProperty = (function () {
+        const endpoints = err.dataPath.split('/');
+        return endpoints[endpoints.length - 1];
+      })();
+
       switch (err.keyword) {
         case 'required':
-          return Response.badRequest('В запросе отсутствуют необходимые данные');
+          return Response.badRequest(`В запросе отсутствует ${err.params.missingProperty}`);
+        case 'type':
+          return Response.badRequest(`Тип ${errProperty} должен быть ${err.params.type}`);
+        default:
+          return Response.badRequest(`Ошибка при валидации данных`);
       }
     }
   }
