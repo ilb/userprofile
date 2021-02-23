@@ -1,7 +1,9 @@
+import Ajv from 'ajv';
 import application from '../application.mjs';
+import Response from '../utils/Response.mjs';
 
 export async function processUsecase({ query: request, req }, useCase) {
-  console.log(req);
+  // console.log(req);
   const scope = await application.createScope(req);
   const usecase = scope.resolve(useCase);
   const props = {
@@ -12,10 +14,22 @@ export async function processUsecase({ query: request, req }, useCase) {
   return { props };
 }
 
-export async function processUsecaseApi(request, useCase) {
-  console.log(request);
-  const scope = await application.createScope(request);
+export async function processUsecaseApi(req, useCase) {
+  const scope = await application.createScope(req);
   const usecase = scope.resolve(useCase);
-  const response = usecase.process(request);
-  return { request, response };
+  const schema = await usecase.schema(req);
+
+  const ajv = new Ajv.default({ allErrors: true });
+  const validate = ajv.compile(schema);
+
+  if (validate(req)) {
+    return await usecase.process(req);
+  } else {
+    for (const err of validate.errors) {
+      switch (err.keyword) {
+        case 'required':
+          return Response.badRequest('В запросе отсутствуют необходимые данные');
+      }
+    }
+  }
 }
