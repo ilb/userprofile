@@ -7,13 +7,8 @@ export default class SalepointChange {
 
   async process(req) {
     const salepointCode = req.body.salepointCode;
-
-    try {
-      await this.salepointService.changeCurrentSalepoint(salepointCode);
-      return Response.ok('Текущая точка продаж изменена');
-    } catch (err) {
-      return Response.internalError();
-    }
+    await this.salepointService.changeCurrentSalepoint(salepointCode);
+    return Response.noContent();
   }
 
   async schema(req) {
