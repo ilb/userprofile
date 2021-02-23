@@ -16,10 +16,21 @@ export default class SalepointService {
   async getCurrentSalepoint() {
     const user = await this.userRepository.findByCode(this.currentUser);
     const currentUserSalepoint = await this.userSalepointRepository.findCurrentByUserId(user.id);
-    console.log(currentUserSalepoint, 'asdfasfd');
     const currentSalepoint = await this.salepointRepository.findById(
       currentUserSalepoint.salepointId
     );
     return currentSalepoint;
+  }
+
+  async changeCurrentSalepoint(salepointCode) {
+    const user = await this.userRepository.findByCode(this.currentUser);
+    const newSalepoint = await this.salepointRepository.findByCode(salepointCode);
+    const currentUserSalepoint = await this.userSalepointRepository.findCurrentByUserId(user.id);
+
+    await this.userSalepointRepository.updateById(currentUserSalepoint.id, {
+      endDate: new Date().toISOString()
+    });
+
+    await this.userSalepointRepository.create(user, newSalepoint);
   }
 }
