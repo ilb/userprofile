@@ -23,7 +23,11 @@ export async function processUsecaseApi(req, useCase) {
   const validate = ajv.compile(schema);
 
   if (validate(req)) {
-    return await usecase.process(req);
+    try {
+      return await usecase.process(req);
+    } catch (err) {
+      return Response.internalError();
+    }
   } else {
     for (const err of validate.errors) {
       const errProperty = (function () {
