@@ -1,5 +1,3 @@
-import Response from '../../libs/utils/Response.mjs';
-
 export default class SalepointChange {
   constructor({ salepointService }) {
     this.salepointService = salepointService;
@@ -8,7 +6,7 @@ export default class SalepointChange {
   async process(req) {
     const salepointCode = req.body.salepointCode;
     await this.salepointService.changeCurrentSalepoint(salepointCode);
-    return Response.noContent();
+    return null;
   }
 
   async schema(req) {

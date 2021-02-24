@@ -24,7 +24,12 @@ export async function processUsecaseApi(req, useCase) {
 
   if (validate(req)) {
     try {
-      return await usecase.process(req);
+      const result = usecase.process(req);
+      if (result) {
+        return Response.ok(result);
+      } else {
+        return Response.noContent();
+      }
     } catch (err) {
       return Response.internalError();
     }
