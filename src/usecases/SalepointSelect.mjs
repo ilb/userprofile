@@ -15,14 +15,13 @@ export default class SalepointSelect {
     const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
     const currentSalepoint = await this.salepointService.getCurrentSalepoint();
 
-    const { name, code } = currentSalepoint;
-    result.currentSalepoint = { name, code };
     result.salepoints = salepoints
-      .filter(({ code }) => code !== currentSalepoint.code)
-      .map(({ name, code }) => ({ name, code }));
-    // if (request.q) {
-    //   result.rows = await this.dictionaryRepository.search(request.q);
-    // }
+      .map(({ name, code }) => ({
+        name,
+        code,
+        isCurrent: code === currentSalepoint.code
+      }))
+      .sort((a, b) => (a.isCurrent === b.isCurrent ? 0 : a.isCurrent ? -1 : 1));
     return result;
   }
 

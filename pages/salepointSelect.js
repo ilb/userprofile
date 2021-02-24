@@ -5,6 +5,7 @@ import { createSchemaBridge } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { processUsecase } from '../libs/usecases';
+import { changeSalepoint } from '../apiclient/salepointsApi';
 
 function FormSelect({ name, id, label, defaultValue, register, required, options, errors }) {
   return (
@@ -23,28 +24,30 @@ function FormSelect({ name, id, label, defaultValue, register, required, options
 }
 
 function SalepointSelectPage({ router, request, response, schema }) {
-  const allSalepoints = [response.currentSalepoint, ...response.salepoints];
-
   const { register, handleSubmit } = useForm();
 
-  function onSubmit(query) {
-    console.log(query);
-    // router.push({ query });
+  const salepoints = response.salepoints;
+  const currentSalepoint = salepoints.find((sp) => sp.isCurrent);
+
+  async function onSubmit(query) {
+    await changeSalepoint(query.salepointCode);
+    router.replace(router.asPath);
   }
 
   return (
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormSelect
-          name="salepoint"
+          name="salepointCode"
           label="Точка продаж"
-          options={allSalepoints.map(({ code, name }) => ({
+          options={salepoints.map(({ code, name, isCurrent }) => ({
             value: code,
-            label: name
+            label: (isCurrent && `> ${name}`) || name
           }))}
+          defaultValue={currentSalepoint.code}
           register={register}
         />
-        <Form.Button type="submit">Submit</Form.Button>
+        <Form.Button type="submit">Сменить точку продаж</Form.Button>
       </Form>
       {/* <AutoForm
         schema={createSchemaBridge(schema)}
