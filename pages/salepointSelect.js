@@ -5,7 +5,7 @@ import { createSchemaBridge } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { processUsecase } from '../libs/usecases';
-import { changeSalepoint } from '../libs/api/salepointsApi';
+import { changeSalepoint } from '../apiclient/salepointsApi';
 
 function FormSelect({ name, id, label, defaultValue, register, required, options, errors }) {
   return (
