@@ -6,6 +6,7 @@ import { withRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { processUsecase } from '../libs/usecases';
 import { changeSalepoint } from '../apiclient/salepointsApi';
+import Head from 'next/head';
 
 function FormSelect({ name, id, label, defaultValue, register, required, options, errors }) {
   return (
@@ -26,7 +27,7 @@ function FormSelect({ name, id, label, defaultValue, register, required, options
 function SalepointSelectPage({ router, request, response, schema }) {
   const { register, handleSubmit } = useForm();
 
-  const salepoints = response.salepoints;
+  const salepoints = (response && response.salepoints) || [];
   const currentSalepoint = salepoints.find((sp) => sp.isCurrent);
 
   async function onSubmit(query) {
@@ -36,6 +37,9 @@ function SalepointSelectPage({ router, request, response, schema }) {
 
   return (
     <Container>
+      <Head>
+        <title>Выбор точки продаж</title>
+      </Head>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormSelect
           name="salepointCode"
