@@ -33,4 +33,29 @@ export default class SalepointService {
 
     await this.userSalepointRepository.create(user, newSalepoint);
   }
+
+  /* eslint-disable no-undef */
+  async getSalepointsHistory(user, begDate, endDate, skip, limit) {
+    const userSalepoints = await this.userSalepointRepository.getByUserIdInPeriod(
+      user.id,
+      begDate,
+      endDate,
+      skip,
+      limit
+    );
+    const salepointIds = [...new Set(userSalepoints.map((usp) => usp.salepointId))];
+    const salepoints = await this.salepointRepository.findByIds(salepointIds);
+    const salepointsMap = new Map(salepoints.map((sp) => [sp.id, sp]));
+
+    const salepointsHistory = userSalepoints.map(({ begDate, endDate, salepointId }) => ({
+      begDate: new Date(begDate).toISOString(),
+      endDate: (endDate && new Date(endDate).toISOString()) || null,
+      salepointName: salepointsMap.get(salepointId).name
+    }));
+    return salepointsHistory;
+  }
+
+  async getSalepointsHistorySize(user, begDate, endDate) {
+    return this.userSalepointRepository.countByUserIdInPeriod(user.id, begDate, endDate);
+  }
 }
