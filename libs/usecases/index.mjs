@@ -1,38 +1,18 @@
-import Ajv from 'ajv';
 import application from '../application.mjs';
+import ajv from '../utils/ajv.mjs';
 import Response from '../utils/Response.mjs';
 
-export async function processUsecase({ query: request, req }, useCase) {
-  // console.log(req);
-  const scope = await application.createScope(req);
-  const usecase = scope.resolve(useCase);
-  const props = {
-    request,
-    response: await usecase.process(request),
-    schema: await usecase.schema(request)
-  };
-  return { props };
+class ValidationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ValidationError';
+  }
 }
 
-export async function processUsecaseApi(req, useCase) {
-  const scope = await application.createScope(req);
-  const usecase = scope.resolve(useCase);
-  const schema = await usecase.schema(req);
-
-  const ajv = new Ajv.default({ allErrors: true });
+function validateUsecase(request, schema) {
   const validate = ajv.compile(schema);
-
-  if (validate(req)) {
-    try {
-      const result = usecase.process(req);
-      if (result) {
-        return Response.ok(result);
-      } else {
-        return Response.noContent();
-      }
-    } catch (err) {
-      return Response.internalError();
-    }
+  if (validate(request)) {
+    return;
   } else {
     for (const err of validate.errors) {
       const errProperty = (function () {
@@ -42,12 +22,54 @@ export async function processUsecaseApi(req, useCase) {
 
       switch (err.keyword) {
         case 'required':
-          return Response.badRequest(`В запросе отсутствует ${err.params.missingProperty}`);
+          throw new ValidationError(`В запросе отсутствует ${err.params.missingProperty}`);
         case 'type':
-          return Response.badRequest(`Тип ${errProperty} должен быть ${err.params.type}`);
+          throw new ValidationError(`Тип ${errProperty} должен быть ${err.params.type}`);
         default:
-          return Response.badRequest(`Ошибка при валидации данных`);
+          throw new ValidationError(`Ошибка при валидации данных`);
       }
+    }
+  }
+}
+
+export async function processUsecase({ query: request, req }, useCase) {
+  const scope = await application.createScope(req);
+  const usecase = scope.resolve(useCase);
+  const schema = await usecase.schema(request);
+  let response = null;
+
+  if (Object.values(request).length) {
+    try {
+      validateUsecase(request, schema);
+      response = await usecase.process(request);
+    } catch (err) {
+      response = await usecase.process({});
+    }
+  } else {
+    response = await usecase.process({});
+  }
+
+  return { props: { request, response, schema } };
+}
+
+export async function processUsecaseApi(req, useCase) {
+  const scope = await application.createScope(req);
+  const usecase = scope.resolve(useCase);
+  const schema = await usecase.schema(req);
+
+  try {
+    validateUsecase(req, schema);
+    const result = usecase.process(req);
+    if (result) {
+      return Response.ok(result);
+    } else {
+      return Response.noContent();
+    }
+  } catch (err) {
+    if (err instanceof ValidationError) {
+      return Response.badRequest(err.message);
+    } else {
+      return Response.internalError();
     }
   }
 }
