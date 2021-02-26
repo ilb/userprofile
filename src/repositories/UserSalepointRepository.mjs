@@ -25,6 +25,9 @@ export default class UserSalepointRepository {
       orderBy: {
         begDate: 'desc'
       },
+      include: {
+        salepoint: true
+      },
       skip: skip,
       take: limit
     });

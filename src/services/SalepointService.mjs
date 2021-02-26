@@ -48,14 +48,10 @@ export default class SalepointService {
       skip,
       limit
     );
-    const salepointIds = [...new Set(userSalepoints.map((usp) => usp.salepointId))];
-    const salepoints = await this.salepointRepository.findByIds(salepointIds);
-    const salepointsMap = new Map(salepoints.map((sp) => [sp.id, sp]));
-
-    const salepointsHistory = userSalepoints.map(({ begDate, endDate, salepointId }) => ({
+    const salepointsHistory = userSalepoints.map(({ begDate, endDate, salepoint }) => ({
       begDate: new Date(begDate).toISOString(),
       endDate: (endDate && new Date(endDate).toISOString()) || null,
-      salepointName: salepointsMap.get(salepointId).name
+      salepointName: salepoint.name
     }));
     return salepointsHistory;
   }
