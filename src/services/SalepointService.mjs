@@ -16,6 +16,9 @@ export default class SalepointService {
   async getCurrentSalepoint() {
     const user = await this.userRepository.findByCode(this.currentUser);
     const currentUserSalepoint = await this.userSalepointRepository.findCurrentByUserId(user.id);
+    if (!currentUserSalepoint) {
+      return null;
+    }
     const currentSalepoint = await this.salepointRepository.findById(
       currentUserSalepoint.salepointId
     );
@@ -27,9 +30,11 @@ export default class SalepointService {
     const newSalepoint = await this.salepointRepository.findByCode(salepointCode);
     const currentUserSalepoint = await this.userSalepointRepository.findCurrentByUserId(user.id);
 
-    await this.userSalepointRepository.updateById(currentUserSalepoint.id, {
-      endDate: new Date().toISOString()
-    });
+    if (currentUserSalepoint) {
+      await this.userSalepointRepository.updateById(currentUserSalepoint.id, {
+        endDate: new Date().toISOString()
+      });
+    }
 
     await this.userSalepointRepository.create(user, newSalepoint);
   }

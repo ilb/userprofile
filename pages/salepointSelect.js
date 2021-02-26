@@ -48,7 +48,7 @@ function SalepointSelectPage({ router, request, response, schema }) {
             value: code,
             label: (isCurrent && `> ${name}`) || name
           }))}
-          defaultValue={currentSalepoint.code}
+          defaultValue={currentSalepoint && currentSalepoint.code}
           register={register}
         />
         <Form.Button type="submit">Сменить точку продаж</Form.Button>

@@ -20,7 +20,7 @@ export default class SalepointSelect {
         .map(({ name, code }) => ({
           name,
           code,
-          isCurrent: code === currentSalepoint.code
+          isCurrent: (currentSalepoint && code === currentSalepoint.code) || false
         }))
         .sort((a, b) => (a.isCurrent === b.isCurrent ? 0 : a.isCurrent ? -1 : 1))
     };
