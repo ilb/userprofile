@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Header, Form } from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
-import { createSchemaBridge } from '@ilb/uniformscomponents';
+import { createSchemaBridge, CustomAutoField } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { processUsecase } from '../libs/usecases';
@@ -36,7 +36,7 @@ function SalepointSelectPage({ router, request, response, schema }) {
   }
 
   return (
-    <Container>
+    <>
       <Head>
         <title>Выбор точки продаж</title>
       </Head>
@@ -61,7 +61,7 @@ function SalepointSelectPage({ router, request, response, schema }) {
         showInlineError={true}
       />
       {response.greeting && <Header as="h1">{response.greeting}</Header>} */}
-    </Container>
+    </>
   );
 }
 export default withRouter(SalepointSelectPage);

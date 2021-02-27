@@ -86,7 +86,7 @@ function SalepointsHistoryPage({ router, request, response, schema }) {
   }
 
   return (
-    <Container>
+    <>
       <Head>
         <title>История точек продаж</title>
       </Head>
@@ -112,7 +112,7 @@ function SalepointsHistoryPage({ router, request, response, schema }) {
           currentPage={currentPage}
         />
       )}
-    </Container>
+    </>
   );
 }
 
