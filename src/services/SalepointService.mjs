@@ -13,8 +13,8 @@ export default class SalepointService {
     this.currentUser = currentUser;
   }
 
-  async getCurrentSalepoint() {
-    const user = await this.userRepository.findByCode(this.currentUser);
+  async getCurrentSalepoint(userCode) {
+    const user = await this.userRepository.findByCode(userCode || this.currentUser);
     const currentUserSalepoint = await this.userSalepointRepository.findCurrentByUserId(user.id);
     if (!currentUserSalepoint) {
       return null;
