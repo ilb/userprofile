@@ -31,7 +31,7 @@ export async function processUsecaseApi(req, useCase) {
 
   try {
     validateBySchema(req, schema);
-    const result = usecase.process(req);
+    const result = await usecase.process(req);
     if (result) {
       return Response.ok(result);
     } else {
