@@ -14,7 +14,6 @@ export default class SalepointSelect {
   async process(request) {
     const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
     const currentSalepoint = await this.salepointService.getCurrentSalepoint();
-
     return {
       salepoints: salepoints
         .map(({ name, code }) => ({
