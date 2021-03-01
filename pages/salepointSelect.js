@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Header, Form } from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
-import { createSchemaBridge } from '@ilb/uniformscomponents';
+import { createSchemaBridge, CustomAutoField } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { processUsecase } from '../libs/usecases';
 import { changeSalepoint } from '../apiclient/salepointsApi';
+import Head from 'next/head';
 
 function FormSelect({ name, id, label, defaultValue, register, required, options, errors }) {
   return (
@@ -26,7 +27,7 @@ function FormSelect({ name, id, label, defaultValue, register, required, options
 function SalepointSelectPage({ router, request, response, schema }) {
   const { register, handleSubmit } = useForm();
 
-  const salepoints = response.salepoints;
+  const salepoints = (response && response.salepoints) || [];
   const currentSalepoint = salepoints.find((sp) => sp.isCurrent);
 
   async function onSubmit(query) {
@@ -35,7 +36,10 @@ function SalepointSelectPage({ router, request, response, schema }) {
   }
 
   return (
-    <Container>
+    <>
+      <Head>
+        <title>Выбор точки продаж</title>
+      </Head>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormSelect
           name="salepointCode"
@@ -44,7 +48,7 @@ function SalepointSelectPage({ router, request, response, schema }) {
             value: code,
             label: (isCurrent && `> ${name}`) || name
           }))}
-          defaultValue={currentSalepoint.code}
+          defaultValue={currentSalepoint && currentSalepoint.code}
           register={register}
         />
         <Form.Button type="submit">Сменить точку продаж</Form.Button>
@@ -57,7 +61,7 @@ function SalepointSelectPage({ router, request, response, schema }) {
         showInlineError={true}
       />
       {response.greeting && <Header as="h1">{response.greeting}</Header>} */}
-    </Container>
+    </>
   );
 }
 export default withRouter(SalepointSelectPage);

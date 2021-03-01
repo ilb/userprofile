@@ -3,30 +3,57 @@ export default class UserSalepointRepository {
     this.prisma = prisma;
   }
 
-  async findCurrentByUserId(userId) {
-    const salepoint = await this.prisma.userSalepoint.findFirst({
-      where: { userId, endDate: null }
-    });
-    return salepoint;
-  }
-
-  async updateById(id, data) {
-    const res = await this.prisma.userSalepoint.update({
-      where: { id },
-      data
-    });
-    return res;
-  }
-
   async create(user, salepoint) {
-    return await this.prisma.userSalepoint.create({
+    return this.prisma.userSalepoint.create({
       data: {
-        // user,
         userId: user.id,
-        // salepoint,
         salepointId: salepoint.id,
         begDate: new Date().toISOString()
       }
+    });
+  }
+
+  async getByUserIdInPeriod(userId, begDate, endDate, skip, limit) {
+    return this.prisma.userSalepoint.findMany({
+      where: {
+        userId,
+        begDate: {
+          gte: begDate,
+          lte: endDate
+        }
+      },
+      orderBy: {
+        begDate: 'desc'
+      },
+      include: {
+        salepoint: true
+      },
+      skip: skip,
+      take: limit
+    });
+  }
+  async countByUserIdInPeriod(userId, begDate, endDate) {
+    return this.prisma.userSalepoint.count({
+      where: {
+        userId,
+        begDate: {
+          gte: begDate,
+          lte: endDate
+        }
+      }
+    });
+  }
+
+  async findCurrentByUserId(userId) {
+    return this.prisma.userSalepoint.findFirst({
+      where: { userId, endDate: null }
+    });
+  }
+
+  async updateById(id, data) {
+    return this.prisma.userSalepoint.update({
+      where: { id },
+      data
     });
   }
 }

@@ -4,16 +4,20 @@ export default class SalepointRepository {
   }
 
   async findById(id) {
-    const salepoint = await this.prisma.salepoint.findUnique({
+    return this.prisma.salepoint.findUnique({
       where: { id }
     });
-    return salepoint;
+  }
+
+  async findByIds(ids) {
+    return this.prisma.salepoint.findMany({
+      where: { id: { in: ids } }
+    });
   }
 
   async findByCode(code) {
-    const salepoint = await this.prisma.salepoint.findFirst({
+    return this.prisma.salepoint.findFirst({
       where: { code }
     });
-    return salepoint;
   }
 }

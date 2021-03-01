@@ -1,4 +1,10 @@
-.ui.selection.dropdown { /* TODO delete after uniforms fix*/
+.ui.selection.dropdown {
+  /* TODO delete after uniforms fix*/
   padding-top: 0.5em !important;
   padding-bottom: 0.5em !important;
+}
+
+.container {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
