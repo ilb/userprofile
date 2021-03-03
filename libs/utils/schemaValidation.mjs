@@ -1,11 +1,5 @@
 import ajv from '../utils/ajv.mjs';
-
-export class ValidationError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = 'ValidationError';
-  }
-}
+import { ValidationError } from './error.mjs';
 
 export function stringifyAjvErrors(ajvErrors) {
   const errorMessages = [];
