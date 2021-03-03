@@ -45,15 +45,18 @@ export default class Application {
     // !!!!!!!!!! NB !!!!!!!!!!!!!!!!
     // uriAccessorFileEnabled security risk
     // do not use for external (client supplied) urls
+    const currentUser = process.env.USER;
     this.container.register({
-      currentUser: asValue(process.env.USER),
+      currentUser: asValue(currentUser),
       dataSource: asFunction(DataSourceFactory),
       prisma: asValue(prisma),
       uriAccessorFileEnabled: asValue(true),
       uriAccessorFactory: asClass(UriAccessorFactory),
       salepointsByUserUrl: asValue(
-        process.env.SALEPOINTSBYUSER_URL ||
+        (
+          process.env.SALEPOINTSBYUSER_URL ||
           context['.apps.ldapadminko.ws'] + '/getSalepointByUser.php?uid-0=${uid}'
+        ).replace('${uid}', currentUser)
       )
     });
 

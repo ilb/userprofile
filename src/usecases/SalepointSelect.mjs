@@ -12,8 +12,7 @@ export default class SalepointSelect {
    * @param {*} request input params
    */
   async process(request) {
-    const user = await this.userService.getOrCreateCurrentUser();
-    const salepoints = await this.salepointProvider.getSalepoints(user);
+    const salepoints = await this.salepointProvider.getSalepoints();
     const currentSalepoint = await this.salepointService.getCurrentSalepoint();
     return {
       salepoints: salepoints

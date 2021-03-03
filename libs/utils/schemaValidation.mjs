@@ -34,7 +34,6 @@ export function validateBySchema(object, schema) {
 
     let generalError = errorMessages.reduce((acc, msg) => (acc += `${msg}\n`), '');
     generalError = generalError.substring(0, generalError.length - 1);
-    console.log(generalError);
     throw new ValidationError(generalError);
   }
 }

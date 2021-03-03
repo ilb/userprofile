@@ -7,8 +7,7 @@ export default class SalepointChange {
 
   async process(req) {
     const salepointCode = req.body.salepointCode;
-    const user = await this.userService.getOrCreateCurrentUser();
-    const salepoints = await this.salepointProvider.getSalepoints(user);
+    const salepoints = await this.salepointProvider.getSalepoints();
     const salepoint = salepoints.find((sp) => sp.code === salepointCode);
     if (salepoint) {
       const { name, code } = salepoint;
