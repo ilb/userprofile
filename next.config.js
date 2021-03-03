@@ -6,7 +6,10 @@ const withTM = require('next-transpile-modules')([
   'uniforms',
   'uniforms-semantic',
   'ajv',
-  '@ilb/uniformscomponents'
+  '@ilb/uniformscomponents',
+  '@ilb/node_context',
+  '@ilb/node_ldap',
+  '@ilb/uriaccessorjs'
 ]);
 
 module.exports = withPlugins([withTM], {

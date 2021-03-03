@@ -1,6 +1,13 @@
 export default class SalepointProvider {
+  constructor({ salepointsByUserUrl, uriAccessorFactory }) {
+    this.salepointsByUserUrl = salepointsByUserUrl;
+    this.uriAccessorFactory = uriAccessorFactory;
+  }
   /*eslint no-unused-vars: ["error", { "args": "none" }]*/
-  getSalepoints(user) {
+  async getSalepoints(user) {
+    const uriAccessor = this.uriAccessorFactory.getUriAccessor(this.salepointsByUserUrl);
+    const xmldata = await uriAccessor.getContent();
+    console.log({ xmldata });
     return [
       {
         code: 'ru.someorg.sales',

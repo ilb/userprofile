@@ -1,11 +1,7 @@
-import SalepointRepository from '../SalepointRepository';
-import * as dotenv from 'dotenv';
-import * as path from 'path';
+import SalepointRepository from '../../src/repositories/SalepointRepository';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-
-// console.log(config);
 
 const repository = new SalepointRepository({ prisma });
 
