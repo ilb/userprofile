@@ -2,17 +2,18 @@
  * Search use case
  */
 export default class SalepointSelect {
-  constructor({ salepointProvider, salepointService, currentUser }) {
+  constructor({ salepointProvider, salepointService, userService }) {
     this.salepointProvider = salepointProvider;
     this.salepointService = salepointService;
-    this.currentUser = currentUser;
+    this.userService = userService;
   }
   /**
    * process use case
    * @param {*} request input params
    */
   async process(request) {
-    const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
+    const user = await this.userService.getOrCreateCurrentUser();
+    const salepoints = await this.salepointProvider.getSalepoints(user);
     const currentSalepoint = await this.salepointService.getCurrentSalepoint();
     return {
       salepoints: salepoints
@@ -28,7 +29,6 @@ export default class SalepointSelect {
   /*eslint no-unused-vars: ["error", { "args": "none" }]*/
   async schema(request) {
     // const schema = {};
-    // const salepoints = await this.salepointProvider.getSalepoints(this.currentUser);
     const schema = {
       type: 'object',
       properties: {
