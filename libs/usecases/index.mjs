@@ -39,10 +39,10 @@ export async function processUsecaseApi(req, useCase) {
       return Response.noContent();
     }
   } catch (err) {
+    console.log(err);
     if (err instanceof ValidationError || err instanceof BadRequestError) {
       return Response.badRequest(err.message);
     } else {
-      console.log(err);
       return Response.internalError();
     }
   }
