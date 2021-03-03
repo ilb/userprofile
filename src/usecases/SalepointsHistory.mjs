@@ -1,9 +1,12 @@
+import { BadRequestError } from '../../libs/utils/error.mjs';
+
 const HISTORY_RECORDS_LIMIT = 10;
 
 export default class SalepointHistory {
-  constructor({ userRepository, salepointService }) {
+  constructor({ userRepository, salepointService, userService }) {
     this.userRepository = userRepository;
     this.salepointService = salepointService;
+    this.userService = userService;
   }
 
   async process(req) {
@@ -13,7 +16,10 @@ export default class SalepointHistory {
     }
     const skippedRecordsCount = (page - 1) * HISTORY_RECORDS_LIMIT || 0;
 
-    const user = await this.userRepository.findByCode(userCode);
+    const user = await this.userService.getUser(userCode);
+    if (!user) {
+      throw new BadRequestError('Пользователь с таким userCode не найден');
+    }
     const begDateIsoString = new Date(begDate).toISOString();
     const endDateIsoString = new Date(endDate).toISOString();
     const salepointsHistorySize = await this.salepointService.getSalepointsHistorySize(
