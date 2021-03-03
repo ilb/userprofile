@@ -1,11 +1,20 @@
 export default class SalepointChange {
-  constructor({ salepointService }) {
+  constructor({ salepointProvider, salepointService, userService }) {
     this.salepointService = salepointService;
+    this.salepointProvider = salepointProvider;
+    this.userService = userService;
   }
 
   async process(req) {
     const salepointCode = req.body.salepointCode;
-    await this.salepointService.changeCurrentSalepoint(salepointCode);
+    const user = await this.userService.getOrCreateCurrentUser();
+    const salepoints = await this.salepointProvider.getSalepoints(user);
+    const salepoint = salepoints.find((sp) => sp.code === salepointCode);
+    if (salepoint) {
+      const { name, code } = salepoint;
+      await this.salepointService.createSalepoint(name, code);
+      await this.salepointService.changeCurrentSalepoint(salepointCode);
+    }
     return null;
   }
 

@@ -4,17 +4,26 @@ export default class SalepointService {
     userRepository,
     userSalepointRepository,
     salepointRepository,
-    currentUser
+    userService
   }) {
     this.salepointProvider = salepointProvider;
     this.userRepository = userRepository;
     this.userSalepointRepository = userSalepointRepository;
     this.salepointRepository = salepointRepository;
-    this.currentUser = currentUser;
+    this.userService = userService;
+  }
+
+  async createSalepoint(name, code) {
+    return this.salepointRepository.create(name, code);
   }
 
   async getCurrentSalepoint(userCode) {
-    const user = await this.userRepository.findByCode(userCode || this.currentUser);
+    let user;
+    if (userCode) {
+      user = await this.userService.getOrCreateUser(userCode);
+    } else {
+      user = await this.userService.getOrCreateCurrentUser();
+    }
     const currentUserSalepoint = await this.userSalepointRepository.findCurrentByUserId(user.id);
     if (!currentUserSalepoint) {
       return null;
@@ -26,8 +35,9 @@ export default class SalepointService {
   }
 
   async changeCurrentSalepoint(salepointCode) {
-    const user = await this.userRepository.findByCode(this.currentUser);
+    const user = await this.userService.getOrCreateCurrentUser();
     const newSalepoint = await this.salepointRepository.findByCode(salepointCode);
+    console.log(newSalepoint);
     const currentUserSalepoint = await this.userSalepointRepository.findCurrentByUserId(user.id);
 
     if (currentUserSalepoint) {
@@ -39,7 +49,6 @@ export default class SalepointService {
     await this.userSalepointRepository.create(user, newSalepoint);
   }
 
-  /* eslint-disable no-undef */
   async getSalepointsHistory(user, begDate, endDate, skip, limit) {
     const userSalepoints = await this.userSalepointRepository.getByUserIdInPeriod(
       user.id,

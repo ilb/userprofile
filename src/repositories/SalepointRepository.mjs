@@ -3,6 +3,15 @@ export default class SalepointRepository {
     this.prisma = prisma;
   }
 
+  async create(name, code) {
+    return this.prisma.salepoint.create({
+      data: {
+        name,
+        code
+      }
+    });
+  }
+
   async findById(id) {
     return this.prisma.salepoint.findUnique({
       where: { id }
