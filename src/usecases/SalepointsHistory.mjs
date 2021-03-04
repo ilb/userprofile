@@ -3,8 +3,7 @@ import { BadRequestError } from '../../libs/utils/error.mjs';
 const HISTORY_RECORDS_LIMIT = 10;
 
 export default class SalepointHistory {
-  constructor({ userRepository, salepointService, userService }) {
-    this.userRepository = userRepository;
+  constructor({ salepointService, userService }) {
     this.salepointService = salepointService;
     this.userService = userService;
   }
@@ -38,7 +37,7 @@ export default class SalepointHistory {
   }
 
   async schema() {
-    const users = await this.userRepository.getAll();
+    const users = await this.userService.getAllUsers();
 
     const schema = {
       type: 'object',

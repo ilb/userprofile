@@ -4,6 +4,10 @@ export default class UserService {
     this.currentUser = currentUser;
   }
 
+  async getAllUsers() {
+    return this.userRepository.getAll();
+  }
+
   async getUser(code) {
     return this.userRepository.findByCode(code);
   }
