@@ -36,10 +36,10 @@ export default class Application {
     this.container = awilix.createContainer();
     const context = await this.contextFactory.buildContext();
     await this.setupDbEnv(context);
-    // const prisma = new PrismaClient();
-    const prisma = new PrismaClient({
-      log: ['query', 'info', `warn`, `error`]
-    });
+    const prisma = new PrismaClient();
+    // const prisma = new PrismaClient({
+    //   log: ['query', 'info', `warn`, `error`]
+    // });
 
     // register currentUser, datasource, prisma
     // !!!!!!!!!! NB !!!!!!!!!!!!!!!!
