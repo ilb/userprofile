@@ -3,9 +3,13 @@ export async function getData(response) {
 }
 
 export async function changeSalepoint(salepointCode) {
-  return fetch('api/salepointChange', {
+  const result = await fetch('api/salepointChange', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ salepointCode })
   });
+  if (result.status !== 204) {
+    return result.json();
+  }
+  return result;
 }
