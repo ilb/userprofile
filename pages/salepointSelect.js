@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Header, Form } from 'semantic-ui-react';
+import { Container, Header, Form, Menu, Button } from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge, CustomAutoField } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
@@ -8,6 +8,7 @@ import { processUsecase } from '../libs/usecases';
 import { changeSalepoint } from '../client/api/salepointsApi';
 import Head from 'next/head';
 import { ErrorMessage } from '../client/components/ErrorMessage';
+import Link from 'next/link';
 
 function FormSelect({ name, id, label, defaultValue, register, required, options, errors }) {
   return (
@@ -47,6 +48,11 @@ function SalepointSelectPage({ router, request, response, schema }) {
       <Head>
         <title>Выбор точки продаж</title>
       </Head>
+
+      <div style={{ marginBottom: 8 }}>
+        <Link href="/salepointsHistory">История</Link>
+      </div>
+
       <ErrorMessage error={errorMessage} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormSelect
