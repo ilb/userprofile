@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Header, Form, Menu, Button } from 'semantic-ui-react';
+import { Container, Header, Form } from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge, CustomAutoField } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
