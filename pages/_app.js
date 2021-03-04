@@ -1,10 +1,11 @@
 import React from 'react';
 import App from 'next/app';
+import { ErrorMessage } from '../client/components/ErrorMessage';
 
 import 'semantic-ui-offline/semantic.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles.css';
-import { Container, Message } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 //import '../.semantic/dist/semantic.min.css';
 
 class MyApp extends App {
@@ -13,12 +14,7 @@ class MyApp extends App {
     const error = pageProps.error;
     return (
       <Container className="container">
-        {(error && (
-          <Message error>
-            <span style={{ whiteSpace: 'pre-line' }}>{error}</span>
-          </Message>
-        )) ||
-          null}
+        <ErrorMessage error={error} />
         <Component {...pageProps} />
       </Container>
     );

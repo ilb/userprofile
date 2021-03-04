@@ -1,7 +1,7 @@
 import { createSchemaBridge, CustomAutoField } from '@ilb/uniformscomponents';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
-import { Container, FormGroup, Menu, Table, TableRow } from 'semantic-ui-react';
+import { FormGroup, Menu, Table, TableRow } from 'semantic-ui-react';
 import { AutoField, AutoForm, ErrorsField, SubmitField } from 'uniforms-semantic';
 import { processUsecase } from '../libs/usecases';
 
@@ -65,7 +65,7 @@ function SalepointsHistoryTable({
   );
 }
 
-function SalepointsHistoryPage({ router, request, response, schema }) {
+function SalepointsHistoryPage({ router, request, response, schema, error }) {
   const { salepointsHistory, userName, salepointsHistorySize } = response || {};
 
   const pagesCount = Math.ceil((salepointsHistorySize || 0) / 10);
@@ -92,7 +92,7 @@ function SalepointsHistoryPage({ router, request, response, schema }) {
       </Head>
       <AutoForm
         schema={createSchemaBridge(schema)}
-        model={request}
+        model={(!error && request) || {}}
         autoField={CustomAutoField}
         onSubmit={onSubmit}>
         <AutoField name="userCode" />

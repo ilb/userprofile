@@ -3,14 +3,22 @@ export default class UserRepository {
     this.prisma = prisma;
   }
 
+  async create(code) {
+    return await this.prisma.user.create({
+      data: {
+        name: code,
+        code
+      }
+    });
+  }
+
   async getAll() {
     return this.prisma.user.findMany();
   }
 
   async findByCode(code) {
-    const user = await this.prisma.user.findUnique({
+    return await this.prisma.user.findUnique({
       where: { code }
     });
-    return user;
   }
 }

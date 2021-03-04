@@ -1,6 +1,7 @@
 import application from '../application.mjs';
-import { ValidationError, validateBySchema } from '../utils/schemaValidation.mjs';
+import { validateBySchema } from '../utils/schemaValidation.mjs';
 import Response from '../utils/Response.mjs';
+import { ValidationError, BadRequestError } from '../utils/error.mjs';
 
 export async function processUsecase({ query: request, req }, useCase) {
   const scope = await application.createScope(req);
@@ -38,8 +39,9 @@ export async function processUsecaseApi(req, useCase) {
       return Response.noContent();
     }
   } catch (err) {
-    console.log({ err });
-    if (err instanceof ValidationError) {
+    console.log(err.toString());
+    const errName = err.name;
+    if (errName === BadRequestError.name || errName === ValidationError.name) {
       return Response.badRequest(err.message);
     } else {
       return Response.internalError();

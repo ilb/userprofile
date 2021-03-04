@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Header, Form } from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge, CustomAutoField } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { processUsecase } from '../libs/usecases';
-import { changeSalepoint } from '../apiclient/salepointsApi';
+import { changeSalepoint } from '../client/api/salepointsApi';
 import Head from 'next/head';
+import { ErrorMessage } from '../client/components/ErrorMessage';
 
 function FormSelect({ name, id, label, defaultValue, register, required, options, errors }) {
   return (
@@ -25,13 +26,19 @@ function FormSelect({ name, id, label, defaultValue, register, required, options
 }
 
 function SalepointSelectPage({ router, request, response, schema }) {
+  const [errorMessage, setErrorMessage] = useState('');
   const { register, handleSubmit } = useForm();
 
   const salepoints = (response && response.salepoints) || [];
   const currentSalepoint = salepoints.find((sp) => sp.isCurrent);
 
   async function onSubmit(query) {
-    await changeSalepoint(query.salepointCode);
+    const result = await changeSalepoint(query.salepointCode);
+    if (result.message) {
+      setErrorMessage(result.message);
+    } else {
+      setErrorMessage('');
+    }
     router.replace(router.asPath);
   }
 
@@ -40,6 +47,7 @@ function SalepointSelectPage({ router, request, response, schema }) {
       <Head>
         <title>Выбор точки продаж</title>
       </Head>
+      <ErrorMessage error={errorMessage} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormSelect
           name="salepointCode"

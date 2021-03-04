@@ -43,7 +43,8 @@
     "styled-components": "^5.2.1",
     "uniforms": "^3.2.0",
     "uniforms-bridge-json-schema": "^3.2.0",
-    "uniforms-semantic": "^3.2.0"
+    "uniforms-semantic": "^3.2.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@prisma/cli": "^2.16.1",

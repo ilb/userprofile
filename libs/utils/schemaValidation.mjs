@@ -1,11 +1,5 @@
 import ajv from '../utils/ajv.mjs';
-
-export class ValidationError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = 'ValidationError';
-  }
-}
+import { ValidationError } from './error.mjs';
 
 export function stringifyAjvErrors(ajvErrors) {
   const errorMessages = [];
@@ -40,7 +34,6 @@ export function validateBySchema(object, schema) {
 
     let generalError = errorMessages.reduce((acc, msg) => (acc += `${msg}\n`), '');
     generalError = generalError.substring(0, generalError.length - 1);
-    console.log(generalError);
     throw new ValidationError(generalError);
   }
 }
