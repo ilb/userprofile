@@ -19,6 +19,6 @@
 
 ![model](model.svg)
 
-## Сущности
+## Модель предметной области
 
 ![entities](entities.svg)
