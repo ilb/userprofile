@@ -1,9 +1,13 @@
 export default class Response {
-  static createResponse(httpCode, message, data = {}) {
-    return { httpCode, message, data };
+  static createResponse(httpCode, data) {
+    if (data) {
+      return { httpCode, data };
+    } else {
+      return { httpCode };
+    }
   }
-  static ok(data = {}) {
-    return Response.createResponse(200, null, data);
+  static ok(data) {
+    return Response.createResponse(200, data);
   }
   static noContent() {
     return Response.createResponse(204, null);

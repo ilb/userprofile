@@ -35,8 +35,8 @@ function SalepointSelectPage({ router, request, response, schema }) {
 
   async function onSubmit(query) {
     const result = await changeSalepoint(query.salepointCode);
-    if (result.message) {
-      setErrorMessage(result.message);
+    if (result) {
+      setErrorMessage(result);
     } else {
       setErrorMessage('');
     }
@@ -48,12 +48,10 @@ function SalepointSelectPage({ router, request, response, schema }) {
       <Head>
         <title>Выбор точки продаж</title>
       </Head>
-
+      <ErrorMessage error={errorMessage} />
       <div style={{ marginBottom: 8 }}>
         <Link href="/salepointsHistory">История</Link>
       </div>
-
-      <ErrorMessage error={errorMessage} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormSelect
           name="salepointCode"

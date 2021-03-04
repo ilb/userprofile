@@ -1,15 +1,15 @@
-export async function getData(response) {
-  return response.then((data) => data.json());
-}
-
 export async function changeSalepoint(salepointCode) {
   const result = await fetch('api/salepointChange', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ salepointCode })
   });
-  if (result.status !== 204) {
+  if (result.status === 204) {
+    return null;
+  }
+  if (result.headers.get('Content-Type') === 'text/plain') {
+    return result.text();
+  } else {
     return result.json();
   }
-  return result;
 }
