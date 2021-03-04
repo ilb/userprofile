@@ -1,13 +1,18 @@
-export class ValidationError extends Error {
-  constructor(message) {
+class CustomError extends Error {
+  constructor(message, name) {
     super(message);
-    this.name = 'ValidationError';
+    this.name = name;
   }
 }
 
-export class BadRequestError extends Error {
+export class ValidationError extends CustomError {
   constructor(message) {
-    super(message);
-    this.name = 'BadRequestError';
+    super(message, 'ValidationError');
+  }
+}
+
+export class BadRequestError extends CustomError {
+  constructor(message) {
+    super(message, 'BadRequestError');
   }
 }

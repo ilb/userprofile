@@ -17,6 +17,10 @@ export default class SalepointService {
     return this.salepointRepository.create(name, code);
   }
 
+  async getSalepoint(code) {
+    return this.salepointRepository.findByCode(code);
+  }
+
   async getCurrentSalepoint(userCode) {
     let user;
     if (userCode) {
