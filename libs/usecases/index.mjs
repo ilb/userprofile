@@ -3,9 +3,35 @@ import { validateBySchema } from '../utils/schemaValidation.mjs';
 import Response from '../utils/Response.mjs';
 import { ValidationError, BadRequestError } from '../utils/error.mjs';
 
-export async function processUsecase({ query: request, req }, useCase) {
-  const scope = await application.createScope(req);
-  const usecase = scope.resolve(useCase);
+/**
+ * create scope for usecase processing
+ * @param req The HTTP IncomingMessage object
+ * @returns
+ */
+export async function createScope(req) {
+  return application.createScope(req);
+}
+
+/**
+ * process usecase by name (from appication context)
+ * @param context contex from getServerSideProps
+ * @param useCaseName
+ * @returns
+ */
+export async function processUsecase(context, useCaseName) {
+  const scope = createScope(context.req);
+  const usecase = scope.resolve(useCaseName);
+  return processUsecaseInstance(context, usecase);
+}
+
+/**
+ * process usecase instance
+ * @param context contex from getServerSideProps
+ * @param usecase usecase instance
+ * @returns
+ */
+export async function processUsecaseInstance(context, usecase) {
+  const request = context.query;
   const schema = await usecase.schema(request);
   let response = null;
   let error = null;

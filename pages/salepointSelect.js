@@ -4,11 +4,13 @@ import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge, CustomAutoField } from '@ilb/uniformscomponents';
 import { withRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-import { processUsecase } from '../libs/usecases';
+// import { processUsecase } from '../libs/usecases';
+import { createScope, processUsecaseInstance } from '../libs/usecases';
 import { changeSalepoint } from '../client/api/salepointsApi';
 import Head from 'next/head';
 import { ErrorMessage } from '../client/components/ErrorMessage';
 import Link from 'next/link';
+import SalepointSelect from '../src/usecases/SalepointSelect';
 
 function FormSelect({ name, id, label, defaultValue, register, required, options, errors }) {
   return (
@@ -79,5 +81,7 @@ function SalepointSelectPage({ router, request, response, schema }) {
 export default withRouter(SalepointSelectPage);
 
 export async function getServerSideProps(context) {
-  return processUsecase(context, 'salepointSelect');
+  const scope = await createScope(context);
+  const usecase = new SalepointSelect(scope.cradle);
+  return processUsecaseInstance(context, usecase);
 }
